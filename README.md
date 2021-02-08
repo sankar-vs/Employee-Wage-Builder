@@ -5,3 +5,5 @@
 #### Calculate Employee Wage assuming Wage per Day is 20 and Full Day Working Hour is 8.
 ### UsedCase:3
 #### Calculate Employee Wage for a Part Time Employee assuming Full Day Working Hour is 4.
+### Used Case:4
+#### Refactor the UC3 code by using switch statements
