@@ -9,3 +9,6 @@
 #### Refactor the UC3 code by using switch statements
 ### Used Case:5
 #### Calculating Wages for a month assuming number of working days is 20.
+### Used Case:6
+#### Calculate Wages till a condition of total working hours or days is reached. Assume working days is 20 and maximum working hours as 100.
+

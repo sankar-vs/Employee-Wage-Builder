@@ -5,11 +5,13 @@ public class EmployeeWageBuilder {
                 final int IS_PART_TIME = 2;
 		int empRatePerHr = 20;
                 int empHrs;
+		int Hrs = 0;
+		int maxHrs = 100;
 		int workingDays = 20;
 		int day = 1;
                 float wagePerDay = 0, totalSalary = 0;
                 //Computation
-		for ( day = 1 ; day <= workingDays ; day++ ) {
+		while ( (day <= workingDays) && (Hrs < maxHrs) ) {
                         double empCheck = Math.floor(Math.random() * 10) % 3;
 	                switch((int)empCheck) {
 		                case IS_FULL_TIME:
@@ -24,6 +26,8 @@ public class EmployeeWageBuilder {
                                 	System.out.println("Employee is Absent");
                              		empHrs = 0;
 			}
+			day+=1;
+                        Hrs+=empHrs;
                 	wagePerDay = empRatePerHr*empHrs;
 			totalSalary += wagePerDay;
 		}
