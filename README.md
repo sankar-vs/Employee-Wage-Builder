@@ -7,3 +7,5 @@
 #### Calculate Employee Wage for a Part Time Employee assuming Full Day Working Hour is 4.
 ### Used Case:4
 #### Refactor the UC3 code by using switch statements
+### Used Case:5
+#### Calculating Wages for a month assuming number of working days is 20.
