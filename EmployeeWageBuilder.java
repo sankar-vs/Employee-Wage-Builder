@@ -1,7 +1,7 @@
 public class EmployeeWageBuilder {
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
-	public static final int empRatePerHr = 20;
+	public static final int EMP_RATE_PER_HR = 20;
 
 	public static void main(String[] args) {
 		 //Constraints
@@ -21,7 +21,7 @@ public class EmployeeWageBuilder {
                         System.out.println("Employee is Absent");
                         empHrs = 0;
                 }
-                wage = empRatePerHr * empHrs;
+                wage = EMP_RATE_PER_HR * empHrs;
                 System.out.println("Salary: "+ wage);
 	}
 }
