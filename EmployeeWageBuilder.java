@@ -1,11 +1,12 @@
 public class EmployeeWageBuilder {
+	public static final int IS_FULL_TIME = 1;
+        public static final int IS_PART_TIME = 2;
+        public static final int empRatePerHr = 20;
+        public static final int workingDays = 20;
+
 	public static void main(String[] args) {
 		//Constraints
-                final int IS_FULL_TIME = 1;
-                final int IS_PART_TIME = 2;
-		int empRatePerHr = 20;
                 int empHrs;
-		int workingDays = 20;
 		int day = 1;
                 float wagePerDay = 0, totalSalary = 0;
                 //Computation
@@ -24,9 +25,9 @@ public class EmployeeWageBuilder {
                                 	System.out.println("Employee is Absent");
                              		empHrs = 0;
 			}
-                	wagePerDay = empRatePerHr*empHrs;
+                	wagePerDay = empRatePerHr * empHrs;
 			totalSalary += wagePerDay;
 		}
-                System.out.println("Salary: "+totalSalary);
+                System.out.println("Salary: "+ totalSalary);
 	}
 }
