@@ -1,9 +1,10 @@
 public class EmployeeWageBuilder {
+	public static final int IS_FULL_TIME = 1;
+	public static final int IS_PART_TIME = 2;
+	public static final int empRatePerHr = 20;
+
 	public static void main(String[] args) {
 		 //Constraints
-                int IS_FULL_TIME = 1;
-                int IS_PART_TIME = 2;
-		int empRatePerHr = 20;
                 int empHrs;
                 float wage;
                 double empCheck = Math.floor(Math.random() * 10) % 3;
@@ -20,7 +21,7 @@ public class EmployeeWageBuilder {
                         System.out.println("Employee is Absent");
                         empHrs = 0;
                 }
-                wage = empRatePerHr*empHrs;
-                System.out.println("Salary: "+wage);
+                wage = empRatePerHr * empHrs;
+                System.out.println("Salary: "+ wage);
 	}
 }
