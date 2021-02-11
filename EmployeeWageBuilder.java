@@ -1,9 +1,18 @@
 public class EmployeeWageBuilder {
 	public static final int IS_FULL_TIME = 1;
         public static final int IS_PART_TIME = 2;
-        public static final int EMP_RATE_PER_HR = 20;
-        public static final int MAX_HRS = 100;
-        public static final int WORKING_DAYS = 20;
+
+	private String company;
+	private int empRatePerHr;
+        private int maxHrs;
+        private int workingDays;
+
+	public EmployeeWageBuilder( String company, int empRatePerHr, int maxHrs, int workingDays ) {
+		this.company = company;
+		this.empRatePerHr = empRatePerHr;
+		this.maxHrs = maxHrs;
+		this.workingDays = workingDays;
+	}
 
 	public static int workHrs(int check) {
 		int workingHours;
@@ -24,6 +33,8 @@ public class EmployeeWageBuilder {
 
 	}
 	public static void main(String[] args) {
+		//Defining a Oject
+		EmployeeWageBuilder dMart = new EmployeeWageBuilder("DMART",20,100,20);
 		//Constraints
                 int empHrs;
 		int Hrs = 0;
@@ -31,14 +42,14 @@ public class EmployeeWageBuilder {
                 float wagePerDay = 0, totalSalary = 0;
 
 		//Computation
-		while ( (day <= WORKING_DAYS) && (Hrs < MAX_HRS) ) {
+		while ( (day <= dMart.workingDays) && (Hrs < dMart.maxHrs) ) {
                         int empCheck = (int)Math.floor(Math.random() * 10) % 3;
 	                empHrs = workHrs(empCheck);
 	                day += 1;
                         Hrs += empHrs;
-                	wagePerDay = EMP_RATE_PER_HR * empHrs;
+                	wagePerDay = dMart.empRatePerHr * empHrs;
 			totalSalary += wagePerDay;
 		}
-                System.out.println("Salary: "+ totalSalary);
+                System.out.println("Company: " + dMart.company + " Total Salary: "+ totalSalary);
 	}
 }
