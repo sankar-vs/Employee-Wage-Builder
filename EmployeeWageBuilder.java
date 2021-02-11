@@ -2,10 +2,10 @@ public class EmployeeWageBuilder {
 	public static final int IS_FULL_TIME = 1;
         public static final int IS_PART_TIME = 2;
 
-	private String company;
-	private int empRatePerHr;
-        private int maxHrs;
-        private int workingDays;
+	private final String company;
+	private final int empRatePerHr;
+        private final int maxHrs;
+        private final int workingDays;
 
 	public EmployeeWageBuilder( String company, int empRatePerHr, int maxHrs, int workingDays ) {
 		this.company = company;
