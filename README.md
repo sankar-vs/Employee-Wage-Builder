@@ -15,4 +15,5 @@
 #### Create a java method for calculating the work Hours
 ### Used Case:8
 #### Object oriented programming. Create a constructor which varies the working Dyas, Max Hours and Employee Rate Per Hour for different companies
-
+### Used Case:9
+#### Ability to save the Total Wage for Each Company 

@@ -6,6 +6,7 @@ public class EmployeeWageBuilder {
 	private final int empRatePerHr;
         private final int maxHrs;
         private final int workingDays;
+	private int totalEmpWage;
 
 	public EmployeeWageBuilder( String company, int empRatePerHr, int maxHrs, int workingDays ) {
 		this.company = company;
@@ -14,15 +15,15 @@ public class EmployeeWageBuilder {
 		this.workingDays = workingDays;
 	}
 
-	public static void calculateEmpWageComp( String company, int workingDays, int maxHrs, int empRatePerHr) {
+	public void calculateEmpWageComp() {
 		//Constraints
                 int empHrs;
                 int Hrs = 0;
                 int day = 1;
-                float wagePerDay = 0, totalSalary = 0;
+                int wagePerDay = 0, totalSalary = 0;
 
                 //Computation
-                while ( (day <= workingDays) && (Hrs < maxHrs) ) {
+                while ( (day <= workingDays) && (Hrs <= maxHrs) ) {
                         int empCheck = (int)Math.floor(Math.random() * 10) % 3;
 			switch(empCheck) {
                         case IS_FULL_TIME:
@@ -43,17 +44,21 @@ public class EmployeeWageBuilder {
                         wagePerDay = empRatePerHr * empHrs;
                         totalSalary += wagePerDay;
                 }
-                System.out.println("Company: " + company + "Salary: "+ totalSalary);
-
+		totalEmpWage = totalSalary;
 	}
 
+	public String toString() {
+		return "Total Emp Wage for Company: " +company+ " is "+ totalEmpWage;
+	}
 	public static void main(String[] args) {
 		//Defining a Oject
 		EmployeeWageBuilder dMart = new EmployeeWageBuilder("DMART",20,100,20);
-		calculateEmpWageComp(dMart.company, dMart.workingDays, dMart.maxHrs, dMart.empRatePerHr);
+		dMart.calculateEmpWageComp();
+		System.out.println(dMart);
 		//Defining a Oject
                 EmployeeWageBuilder hcl = new EmployeeWageBuilder("HCL",20,100,20);
-                calculateEmpWageComp(hcl.company, hcl.workingDays, hcl.maxHrs, hcl.empRatePerHr);
+                hcl.calculateEmpWageComp();
+		System.out.println(hcl);
 
 	}
 }
