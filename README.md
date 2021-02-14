@@ -24,4 +24,6 @@
 ### Used Case:12
 #### Use array list
 ### Used Case:13
-#### Stre Daily Wage with Total Daily Wage
+#### Store Daily Wage with Total Daily Wage
+### Used Case:14
+#### Ability to get the total Wage when queried by Company
