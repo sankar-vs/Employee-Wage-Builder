@@ -19,3 +19,6 @@
 #### Ability to save the Total Wage for Each Company 
 ### Used Case:10
 #### Ability to manage Employee Wage of multiple companies
+### Used Case:11
+#### Use API Approach on UC10 code
+

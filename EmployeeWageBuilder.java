@@ -1,21 +1,48 @@
+class CompanyEmpWage {
+	public final String company;
+	public final int empRatePerHr;
+	public final int workingDays;
+	public final int maxHrs;
+	public int totalEmpWage;
+
+	public CompanyEmpWage( String company, int empRatePerHr, int maxHrs, int workingDays ) {
+		this.company = company;
+                this.empRatePerHr = empRatePerHr;
+                this.maxHrs = maxHrs;
+                this.workingDays = workingDays;
+	}
+
+	public void setTotalEmpWage(int totalEmpWage) {
+		this.totalEmpWage = totalEmpWage;
+	}
+	public String toString() {
+                return "Total Emp Wage for Company: " +company+ " is "+ totalEmpWage;
+	}
+}
 public class EmployeeWageBuilder {
 	public static final int IS_FULL_TIME = 1;
         public static final int IS_PART_TIME = 2;
 
-	private final String company;
-	private final int empRatePerHr;
-        private final int maxHrs;
-        private final int workingDays;
-	private int totalEmpWage;
+	private int numOfCompany = 0;
+	private CompanyEmpWage[] companyEmpWageArray;
 
-	public EmployeeWageBuilder( String company, int empRatePerHr, int maxHrs, int workingDays ) {
-		this.company = company;
-		this.empRatePerHr = empRatePerHr;
-		this.maxHrs = maxHrs;
-		this.workingDays = workingDays;
+	public EmployeeWageBuilder() {
+		companyEmpWageArray = new CompanyEmpWage[5];
 	}
 
-	public void calculateEmpWageComp() {
+	private void addCompanyEmpWage(String company, int empRatePerHr, int maxHrs, int workingDays) {
+		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company, empRatePerHr, maxHrs, workingDays);
+		numOfCompany++;
+	}
+
+	private void calculateEmpWageComp() {
+		for (int i = 0; i < numOfCompany ; i++) {
+			companyEmpWageArray[i].setTotalEmpWage(this.calculateEmpWageComp(companyEmpWageArray[i]));
+			System.out.println(companyEmpWageArray[i]);
+		}
+	}
+
+	private int calculateEmpWageComp(CompanyEmpWage companyEmpWage) {
 		//Constraints
                 int empHrs;
                 int Hrs = 0;
@@ -23,7 +50,7 @@ public class EmployeeWageBuilder {
                 int wagePerDay = 0, totalSalary = 0;
 
                 //Computation
-                while ( (day <= workingDays) && (Hrs <= maxHrs) ) {
+                while ( (day <= companyEmpWage.workingDays) && (Hrs <= companyEmpWage.maxHrs) ) {
                         int empCheck = (int)Math.floor(Math.random() * 10) % 3;
 			switch(empCheck) {
                         case IS_FULL_TIME:
@@ -41,24 +68,16 @@ public class EmployeeWageBuilder {
 
                         day += 1;
                         Hrs += empHrs;
-                        wagePerDay = empRatePerHr * empHrs;
+                        wagePerDay = companyEmpWage.empRatePerHr * empHrs;
                         totalSalary += wagePerDay;
                 }
-		totalEmpWage = totalSalary;
+		return totalSalary;
 	}
 
-	public String toString() {
-		return "Total Emp Wage for Company: " +company+ " is "+ totalEmpWage;
-	}
 	public static void main(String[] args) {
 		//Defining a Oject
-		EmployeeWageBuilder dMart = new EmployeeWageBuilder("DMART",20,100,20);
-		dMart.calculateEmpWageComp();
-		System.out.println(dMart);
-		//Defining a Oject
-                EmployeeWageBuilder hcl = new EmployeeWageBuilder("HCL",25,90,25);
-                hcl.calculateEmpWageComp();
-		System.out.println(hcl);
-
+		EmployeeWageBuilder empWage = new EmployeeWageBuilder();
+		empWage.addCompanyEmpWage("HCL",25,90,25);
+                empWage.calculateEmpWageComp();
 	}
 }
