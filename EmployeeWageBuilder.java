@@ -68,9 +68,11 @@ public class EmployeeWageBuilder {
                                 empHrs = 0;
                         }
 
+			// Wage Per Day
+                        wagePerDay = companyEmpWage.empRatePerHr * empHrs;
+			System.out.println("Wage for Day"+day+"#: "+wagePerDay);
                         day += 1;
                         Hrs += empHrs;
-                        wagePerDay = companyEmpWage.empRatePerHr * empHrs;
                         totalSalary += wagePerDay;
                 }
 		return totalSalary;

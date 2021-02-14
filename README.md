@@ -23,3 +23,5 @@
 #### Use API Approach on UC10 code
 ### Used Case:12
 #### Use array list
+### Used Case:13
+#### Stre Daily Wage with Total Daily Wage
