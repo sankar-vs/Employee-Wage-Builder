@@ -21,4 +21,5 @@
 #### Ability to manage Employee Wage of multiple companies
 ### Used Case:11
 #### Use API Approach on UC10 code
-
+### Used Case:12
+#### Use array list

@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 class CompanyEmpWage {
 	public final String company;
 	public final int empRatePerHr;
@@ -24,21 +25,22 @@ public class EmployeeWageBuilder {
         public static final int IS_PART_TIME = 2;
 
 	private int numOfCompany = 0;
-	private CompanyEmpWage[] companyEmpWageArray;
+	private LinkedList<CompanyEmpWage> companyEmpWageList;
 
 	public EmployeeWageBuilder() {
-		companyEmpWageArray = new CompanyEmpWage[5];
+		companyEmpWageList = new LinkedList<>();
 	}
 
 	private void addCompanyEmpWage(String company, int empRatePerHr, int maxHrs, int workingDays) {
-		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company, empRatePerHr, maxHrs, workingDays);
-		numOfCompany++;
+		CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHr, maxHrs, workingDays);
+		companyEmpWageList.add(companyEmpWage);
 	}
 
 	private void calculateEmpWageComp() {
 		for (int i = 0; i < numOfCompany ; i++) {
-			companyEmpWageArray[i].setTotalEmpWage(this.calculateEmpWageComp(companyEmpWageArray[i]));
-			System.out.println(companyEmpWageArray[i]);
+			CompanyEmpWage companyEmpWage = companyEmpWageList.get(i);
+			companyEmpWage.setTotalEmpWage(this.calculateEmpWageComp(companyEmpWage));
+			System.out.println(companyEmpWage);
 		}
 	}
 
