@@ -56,7 +56,7 @@ public class EmployeeWageBuilder {
 		dMart.calculateEmpWageComp();
 		System.out.println(dMart);
 		//Defining a Oject
-                EmployeeWageBuilder hcl = new EmployeeWageBuilder("HCL",20,100,20);
+                EmployeeWageBuilder hcl = new EmployeeWageBuilder("HCL",25,90,25);
                 hcl.calculateEmpWageComp();
 		System.out.println(hcl);
 
