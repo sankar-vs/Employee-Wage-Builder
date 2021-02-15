@@ -1,3 +1,7 @@
+interface IComputeEmpWage {
+	public void addCompanyEmpWage(String company, int empRatePerHr, int maxHrs, int workingDays);
+	public void calculateEmpWageComp();
+	}
 class CompanyEmpWage {
 	public final String company;
 	public final int empRatePerHr;
@@ -19,7 +23,7 @@ class CompanyEmpWage {
                 return "Total Emp Wage for Company: " +company+ " is "+ totalEmpWage;
 	}
 }
-public class EmployeeWageBuilder {
+public class EmployeeWageBuilder implements IComputeEmpWage {
 	public static final int IS_FULL_TIME = 1;
         public static final int IS_PART_TIME = 2;
 
@@ -30,19 +34,19 @@ public class EmployeeWageBuilder {
 		companyEmpWageArray = new CompanyEmpWage[5];
 	}
 
-	private void addCompanyEmpWage(String company, int empRatePerHr, int maxHrs, int workingDays) {
+	public void addCompanyEmpWage(String company, int empRatePerHr, int maxHrs, int workingDays) {
 		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company, empRatePerHr, maxHrs, workingDays);
 		numOfCompany++;
 	}
 
-	private void calculateEmpWageComp() {
+	public void calculateEmpWageComp() {
 		for (int i = 0; i < numOfCompany ; i++) {
 			companyEmpWageArray[i].setTotalEmpWage(this.calculateEmpWageComp(companyEmpWageArray[i]));
 			System.out.println(companyEmpWageArray[i]);
 		}
 	}
 
-	private int calculateEmpWageComp(CompanyEmpWage companyEmpWage) {
+	public int calculateEmpWageComp(CompanyEmpWage companyEmpWage) {
 		//Constraints
                 int empHrs;
                 int Hrs = 0;
@@ -76,7 +80,7 @@ public class EmployeeWageBuilder {
 
 	public static void main(String[] args) {
 		//Defining a Oject
-		EmployeeWageBuilder empWage = new EmployeeWageBuilder();
+		IComputeEmpWage empWage = new EmployeeWageBuilder();
 		empWage.addCompanyEmpWage("HCL",25,90,25);
                 empWage.calculateEmpWageComp();
 	}
