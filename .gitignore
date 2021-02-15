@@ -1,2 +1,4 @@
 EmployeeWageBuilder.class
 CompanyEmpWage.class
+IComputeEmpWage.class
+
