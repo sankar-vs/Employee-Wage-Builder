@@ -46,7 +46,7 @@ public class EmployeeWageBuilder implements IComputeEmpWage{
 	}
 
 	public void calculateEmpWageComp() {
-		for (int i = 0; i < numOfCompany ; i++) {
+		for (int i = 0; i < companyEmpWageList.size() ; i++) {
 			CompanyEmpWage companyEmpWage = companyEmpWageList.get(i);
 			companyEmpWage.setTotalEmpWage(this.calculateEmpWageComp(companyEmpWage));
 			System.out.println(companyEmpWage);
